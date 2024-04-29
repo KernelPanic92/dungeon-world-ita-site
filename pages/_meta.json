@@ -4,16 +4,8 @@
     "title": "Dungeon World",
     "display": "hidden"
   },
-  "il-gioco": {
+  "manuale": {
     "type": "page",
-    "title": "Il Gioco"
-  },
-  "game-master": {
-    "type": "page",
-    "title": "Il Game Master"
-  },
-  "mostri": {
-    "type": "page",
-    "title": "Mostri"
+    "title": "Manuale"
   }
 }
