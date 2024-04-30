@@ -7,5 +7,13 @@
   "manuale": {
     "type": "page",
     "title": "Manuale"
+  },
+  "materiali": {
+    "type": "page",
+    "title": "Materiali"
+  },
+  "altro": {
+    "type": "page",
+    "title": "Altro"
   }
 }
