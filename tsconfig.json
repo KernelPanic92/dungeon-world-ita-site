@@ -21,7 +21,10 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "components/*"
+        "src/components/*"
+      ],
+      "@/services/*": [
+        "src/services/*"
       ]
     },
     "plugins": [
@@ -33,10 +36,12 @@
   },
   "include": [
     "next-env.d.ts",
+    "src/classes-definition.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "tailwind.config.js"  ],
+    ".next/types/**/*.ts",
+    "tailwind.config.js"
+ ],
   "exclude": [
     "node_modules"
   ]

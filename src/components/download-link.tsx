@@ -9,8 +9,8 @@ export interface DownloadLinkProps {
 
 export const DownloadLink: FC<PropsWithChildren<DownloadLinkProps>> = ({href, children}) => {
   
-  return <Link href={href} target='_blank' className='font-bold flex flex-row'>
-    <FontAwesomeIcon icon={faDownload} height={'1rem'} /> {children}
+  return <Link href={href} className='nx-font-bold nx-flex nx-flex-row nx-items-center' newWindow={true}>
+    <FontAwesomeIcon icon={faDownload} height={'1rem'} className='nx-mr-2' /> {children}
   </Link>;
 }
 

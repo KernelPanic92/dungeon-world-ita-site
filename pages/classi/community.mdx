@@ -1,0 +1,31 @@
+import { useData } from 'nextra/data';
+import classService from '@/services/class-service.ts';
+import Classes from '@/components/classes.tsx';
+
+export const getStaticProps = () => {
+  const files = classService.findAllFromCommunity();
+
+  return {
+    props: {
+      ssg: {
+        files: files
+      }
+    },
+    revalidate: 60
+  };
+}
+
+export const CommunityClasses = () => {
+  const { files } = useData();
+ 
+  return <Classes classes={files} />;
+}
+
+
+# Community
+
+In questa sezione trovi tutte le classi ideate dalla community 🚀
+
+
+<CommunityClasses />
+

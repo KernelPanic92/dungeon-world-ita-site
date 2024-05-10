@@ -5,7 +5,7 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra({
   webpack: (config) => {
-    config.resolve.fallback = { fs: false, path: false };
+    config.resolve.fallback = { fs: false };
 
     return config;
   },

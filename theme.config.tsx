@@ -11,6 +11,9 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'Dungeon World in italiano',
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 1
+  },
   i18n: [{
     text: 'Italiano',
     locale: 'it',

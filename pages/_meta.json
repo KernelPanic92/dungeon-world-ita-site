@@ -9,8 +9,8 @@
     "title": "Manuale"
   },
   "classi": {
-    "type": "page",
-    "title": "Classi"
+    "title": "Classi",
+    "type": "page"
   },
   "altro": {
     "type": "page",
