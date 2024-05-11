@@ -8,9 +8,9 @@
     "type": "page",
     "title": "Manuale"
   },
-  "classi": {
-    "title": "Classi",
-    "type": "page"
+  "homebrew": {
+    "type": "page",
+    "title": "Homebrew"
   },
   "altro": {
     "type": "page",

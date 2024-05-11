@@ -1,21 +1,23 @@
 import fs from 'fs';
 import grayMatter from 'gray-matter';
 
-export interface Clazz {
+export interface HomebrewClazz {
     path: string;
     title: string;
     description: string;
-    image: string;
+    authors: Array<string>;
+    collection: string | undefined;
+    image: {name: string, url: string};
+    base: boolean;
     downloads: Array<{name: string, url: string}>;
 }
 
-export class ClassService {
-    public findAll(): Array<Clazz> {
-        return fs.readdirSync('pages/classi', {recursive: true, withFileTypes: true})
+export class HomebrewClassService {
+    public findAll(): Array<HomebrewClazz> {
+        return fs.readdirSync('pages/homebrew/classi', {recursive: true, withFileTypes: true})
             .filter((dirent) => dirent.isFile)
             .filter((dirent) => dirent.name.endsWith('.mdx'))
             .filter((dirent) => dirent.name !== 'index.mdx')
-            .filter((dirent) => dirent.name !== 'community.mdx')
             .map((dirent) => {
                 const content = fs.readFileSync(`${dirent.path}/${dirent.name}`, {encoding: 'utf8'});
                 const metadata = grayMatter(content);
@@ -23,17 +25,16 @@ export class ClassService {
                     path: `${dirent.path}/${dirent.name}`.replace('.mdx', '').replace('pages/', '/'),
                     title: metadata.data['title'] ?? null,
                     description: metadata.data['description'] ?? null,
-                    image: metadata.data['image'] ?? null,
+                    authors: metadata.data['authors'] ?? [],
+                    collection: metadata.data['collection'] ?? null,
+                    base: metadata.data['base'] ?? false,
+                    image: metadata.data['image'] ?? {url: '/images/classi/classi-base/adrian-paladino.jpg', name: 'Adrian il Paladino'},
                     downloads: metadata.data['image'] ?? [],
                 };
             });
     }
-
-    public findAllFromCommunity() {
-        return this.findAll().filter((clazz) => clazz.path.startsWith('/classi/community'));
-    }
 }
 
-const classService = new ClassService();
+const homebrewClassService = new HomebrewClassService();
 
-export default classService;
+export default homebrewClassService;

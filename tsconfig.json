@@ -41,7 +41,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "tailwind.config.js"
- ],
+, "src/components/class-details.mdx" ],
   "exclude": [
     "node_modules"
   ]
