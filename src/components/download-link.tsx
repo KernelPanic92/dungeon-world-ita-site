@@ -13,4 +13,3 @@ export const DownloadLink: FC<PropsWithChildren<DownloadLinkProps>> = ({href, ch
     <FontAwesomeIcon icon={faDownload} height={'1rem'} className='nx-mr-2' /> {children}
   </Link>;
 }
-

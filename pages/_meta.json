@@ -12,6 +12,10 @@
     "type": "page",
     "title": "Homebrew"
   },
+  "downloads": {
+    "type": "page",
+    "title": "Downloads"
+  },
   "altro": {
     "type": "page",
     "title": "Altro"

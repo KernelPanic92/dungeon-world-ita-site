@@ -1,9 +1,17 @@
-import React from 'react'
-import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
-import { useRouter } from 'next/router'
+import React from 'react';
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
+import { useRouter } from 'next/router';
+import { Metal_Mania } from 'next/font/google';
+import clsx from 'clsx';
 
+const metalMania = Metal_Mania({
+  weight: '400',
+  preload: true,
+  subsets: ['latin']
+
+});
 const config: DocsThemeConfig = {
-  logo: <span>Dungeon World</span>,
+  logo: <span className={metalMania.className} style={{fontSize: '1.5rem', color: '#73C482'}}>Dungeon World</span>,
   project: {
     link: 'https://github.com/KernelPanic92/dungeon-world-ita-site',
   },

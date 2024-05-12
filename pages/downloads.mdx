@@ -1,0 +1,50 @@
+import { DownloadLink } from '@/components/download-link';
+import { useData } from 'nextra/data';
+import homebrewClassService from '@/services/homebrew-class-service.ts';
+import {DownloadHombrewClasses} from '@/components/download-homebrew-classes.tsx';
+
+export const getStaticProps = () => {
+  const classes = homebrewClassService.findGroupedByAuthorAndCollection();
+
+  return {
+    props: {
+      ssg: {
+        classes: classes
+      }
+    }
+  };
+}
+
+export const CommunityClasses = () => {
+  const { classes } = useData();
+  const downloads = [];
+  
+  return <DownloadHombrewClasses classes={classes}/>;
+}
+
+# Downloads
+
+Per comodo riferimento, vengono qui elencati tutti i materiali scaricabili e stampabili.
+
+## Materiale Base
+
+- <DownloadLink href={'/assets/riassunti/Le%20Mosse.pdf'}>Riassunto Mosse</DownloadLink>
+- <DownloadLink href={'/assets/riassunti/GM.pdf'}>Riassunto del GM</DownloadLink>
+
+## Classi Base
+
+- <DownloadLink href={'/assets/classi/classi-base/Barbaro.pdf'}>Scheda del Barbaro</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Bardo.pdf'}>Scheda del Bardo</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Chierico.pdf'}>Scheda del Chierico</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/chierico-incantesimi.pdf'}>Incantesimi del Chierico</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Druido.pdf'}>Scheda del Druido</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Guerriero.pdf'}>Scheda del Guerriero</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Ladro.pdf'}>Scheda del Ladro</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Mago.pdf'}>Scheda del Mago</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/mago-incantesimi.pdf'}>Incantesimi del Mago</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Paladino.pdf'}>Scheda del Paladino</DownloadLink>
+- <DownloadLink href={'/assets/classi/classi-base/Ramingo.pdf'}>Scheda del Ramingo</DownloadLink>
+
+### Classi Homebrew
+
+<CommunityClasses />

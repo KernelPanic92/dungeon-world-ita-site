@@ -11,8 +11,8 @@ export const HomebrewClass = (opts: {clazz: HomebrewClazz}) => {
         </p>
         <Link href={opts.clazz.path}>Vai alla scheda →</Link>
       </div>
-      <div className="w-16 h-16 md:w-28 md:h-48 relative aspect-square">
-        <Image className="bject-cover object-center rounded-lg" src={opts.clazz.image.url} alt={opts.clazz.image.name} fill={true} />
+      <div className="w-20 h-36 md:w-28 md:h-48 relative aspect-square">
+        <Image className="object-cover object-center rounded-lg" src={opts.clazz.image.url} alt={opts.clazz.image.name} fill={true} />
       </div>
   </div>;
 }
