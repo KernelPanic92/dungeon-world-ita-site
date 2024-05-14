@@ -7,12 +7,5 @@
     "ladro": "Il Ladro",
     "mago": "Il Mago",
     "paladino": "Il Paladino",
-    "ramingo": "Il Ramingo",
-    "community": {
-        "title": "Community",
-        "theme": {
-            "toc": false,
-            "pagination": false
-        }
-    }
+    "ramingo": "Il Ramingo"
 }
