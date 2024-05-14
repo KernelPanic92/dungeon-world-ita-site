@@ -40,27 +40,59 @@ const config: DocsThemeConfig = {
   text: 'Modifica questa pagina',
  },
   useNextSeoProps: () => {
+    const { frontMatter , title: baseTitle} = useConfig();
+    const description = frontMatter.description ?? 'Dungeon World in italiano';
+    
     return {
-      titleTemplate: '%s – Dungeon World',
-      head: () => {
-        const { asPath, defaultLocale, locale } = useRouter()
-        const { frontMatter } = useConfig()
-        const url =
-          'https://dungeon-world-ita-site.vercel.app/' +
-          (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
-     
-        return (
-          <>
-            <meta property="og:url" content={url} />
-            <meta property="og:title" content={frontMatter.title || 'Dungeon World in italiano'} />
-            <meta
-              property="og:description"
-              content={frontMatter.description || ''}
-            />
-          </>
-        )
-      },
+      title: [frontMatter.title ?? baseTitle, 'Dungeon World in italiano'].filter(Boolean).join(' - '),
+      description
     }
+  },
+  head: () => {
+    const { frontMatter, title: baseTitle } = useConfig();
+    const { asPath, defaultLocale, locale } = useRouter();
+    const title = [frontMatter.title ?? baseTitle, 'Dungeon World in italiano'].filter(Boolean).join(' - ');
+    const url =
+    'https://dungeon-world-ita-site.vercel.app' +
+    (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+    const socialCard = frontMatter.image?.url ?? 'https://dungeon-world-ita-site.vercel.app/images/dungeon-world-cover.webp';
+    const description = frontMatter.description ?? 'Dungeon World in italiano';
+
+    return (
+      <>
+        <meta name="msapplication-TileColor" content="#fff" />
+        <meta name="theme-color" content="#fff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Language" content="it" />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={title} />
+        <meta
+          name="description"
+          content={description}
+        />
+        <meta
+          name="og:description"
+          content={description}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={socialCard} />
+        <meta name="twitter:site:domain" content={title} />
+        <meta name="twitter:url" content="https://nextra.site" />
+        <meta
+          name="og:title"
+          content={title}
+        />
+        <meta name="og:image" content={socialCard} />
+        <meta name="apple-mobile-web-app-title" content={title} />
+        <link rel="icon" href="/favicon.ico" type="image/ico" />
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          type="image/ico"
+          media="(prefers-color-scheme: dark)"
+        />
+      </>
+    )
   }
 }
 
